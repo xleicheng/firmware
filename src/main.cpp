@@ -552,6 +552,8 @@ void setup() {
         boot_screen_anim();
         startup_sound();
     }
+#endif
+
     if (bruceConfig.wifiAtStartup) {
         log_i("Loading Wifi at Startup");
         xTaskCreate(
@@ -563,7 +565,7 @@ void setup() {
             NULL               // Task handle (not used)
         );
     }
-#endif
+
     //  start a task to handle serial commands while the webui is running
     startSerialCommandsHandlerTask(true);
 
@@ -574,7 +576,6 @@ void setup() {
 
     RAM_LOG("setup-end");
 }
-
 /**********************************************************************
  **  Function: loop
  **  Main loop
